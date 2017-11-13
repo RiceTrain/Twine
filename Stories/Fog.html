@@ -1,61 +1,137 @@
 <tw-storydata name="Fog" startnode="14" creator="Twine" creator-version="2.1.3" ifid="B4D3AF8F-677E-4C24-B52A-2D821574AE76" format="Harlowe" format-version="2.0.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">
-</script><tw-passagedata pid="1" name="Your Bedroom" tags="" position="115,673">This sure is a bedroom!
 
-[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="2" name="Upstairs Hallway" tags="" position="417,538">You are upstairs! Where do you want to go?
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+</script><tw-passagedata pid="1" name="Your Bedroom" tags="" position="84,985">This sure is a bedroom!
+
+[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="2" name="Upstairs Hallway" tags="" position="318,800">(if: $StartGameSequenceComplete is false)
+[
+You stomp out of your room in a huff and on a mission. The objective being to get your Brother in trouble. 
+
+That&#x27;s right, You&#x27;re gonna take this to a higher power.
+
+[[Stomp Downstairs-&gt;Downstairs Hallway]]
+]
+(else:)
+[
+You are upstairs! Where do you want to go?
 
 [[Your Bedroom]]
 [[Parent&#x27;s Bedroom]]
 [[Brother&#x27;s Bedroom]]
 [[Attic]]
 [[Bathroom]]
-[[Downstairs-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="3" name="Downstairs Hallway" tags="" position="420,406">There are a few options here.
+[[Downstairs-&gt;Downstairs Hallway]]
+]</tw-passagedata><tw-passagedata pid="3" name="Downstairs Hallway" tags="" position="411,637">(if: $StartGameSequenceComplete is false)
+[
+Upon arriving at the bottom of the stairs, you can hear the sound of the TV coming from the Living Room. You can also hear an occasional hissing sound coming from the Dining Room.
+
+Both are likely to be coming from your Parents.
+
+[[Living Room]]
+[[Dining Room]]
+]
+(else:)
+[
+There are a few options here.
 
 [[Front Door]]
 [[Living Room]]
 [[Dining Room]]
-[[Upstairs-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="4" name="Parent&#x27;s Bedroom" tags="" position="252,682">Double-click this passage to edit it.
+[[Upstairs-&gt;Upstairs Hallway]]
+]</tw-passagedata><tw-passagedata pid="4" name="Parent&#x27;s Bedroom" tags="" position="220,988">Double-click this passage to edit it.
 
-[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="5" name="Brother&#x27;s Bedroom" tags="" position="420,698">Double-click this passage to edit it.
+[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="5" name="Brother&#x27;s Bedroom" tags="" position="377,1004">Double-click this passage to edit it.
 
-[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="6" name="Attic" tags="" position="577,708">Double-click this passage to edit it.
+[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="6" name="Attic" tags="" position="561,1014">Double-click this passage to edit it.
 
-[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="7" name="Bathroom" tags="" position="753,708">Double-click this passage to edit it.
+[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="7" name="Bathroom" tags="" position="737,1014">Double-click this passage to edit it.
 
-[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="8" name="Front Door" tags="" position="254,244">It&#x27;s unlocked.
+[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="8" name="Front Door" tags="" position="187,478">It&#x27;s unlocked.
 
 [[Head Outside-&gt;Front of House]]
-[[Go To Hallway-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="9" name="Living Room" tags="" position="416,243">Double-click this passage to edit it.
+[[Go To Hallway-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="9" name="Living Room" tags="" position="408,473">(if: $StartGameSequenceComplete is false)
+[
+You arrive an a cosy Living Room. The TV is on, but doesn&#x27;t currently have an audience.
 
-[[Leave-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="10" name="Dining Room" tags="" position="586,243">Double-click this passage to edit it.
+You find your Dad alone, standing by the front window. He appears to be absorbed by whatever he&#x27;s doing, unaware of your furious presence.
+
+[[Announce your presence-&gt;Get Dad&#x27;s attention 1]]
+]
+(else:)
+[
+Double-click this passage to edit it.
+
+[[Leave-&gt;Downstairs Hallway]]
+]</tw-passagedata><tw-passagedata pid="10" name="Dining Room" tags="" position="578,473">Double-click this passage to edit it.
 
 [[Go To Kitchen-&gt;Kitchen]]
-[[Go To Hallway-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="11" name="Front of House" tags="" position="244,86">Double-click this passage to edit it.
+[[Go To Hallway-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="11" name="Front of House" tags="" position="187,329">Double-click this passage to edit it.
 
-[[Go back Inside-&gt;Front Door]]</tw-passagedata><tw-passagedata pid="12" name="Kitchen" tags="" position="588,93">Double-click this passage to edit it.
+[[Go back Inside-&gt;Front Door]]</tw-passagedata><tw-passagedata pid="12" name="Kitchen" tags="" position="580,323">Double-click this passage to edit it.
 
 [[Go through Back Door-&gt;Garden]]
-[[Go To Dining Room-&gt;Dining Room]]</tw-passagedata><tw-passagedata pid="13" name="Garden" tags="" position="755,92">Double-click this passage to edit it.
+[[Go To Dining Room-&gt;Dining Room]]</tw-passagedata><tw-passagedata pid="13" name="Garden" tags="" position="747,322">Double-click this passage to edit it.
 
-[[Go back Inside-&gt;Kitchen]]</tw-passagedata><tw-passagedata pid="14" name="Game Start Conversation" tags="" position="151,908">Somehow you&#x27;ve found yourself in a terrifying situation. Fighting for your life against the devil himself, you wonder what the consuquences of losing will be.
+[[Go back Inside-&gt;Kitchen]]</tw-passagedata><tw-passagedata pid="14" name="Game Start Conversation" tags="" position="5,68">(set: $StartGameSequenceComplete to false)
 
-[[Fight on!-&gt;Brother Reveal]]</tw-passagedata><tw-passagedata pid="15" name="Brother Reveal" tags="" position="151,1058">In the face of the skill your opponent displays you continue the fight. You throw your all into it, only primal instinct driving you.
+You find yourself in your room locked in battle with your Older Brother. You&#x27;ve been practising at this game every day after school, knowing that this day was coming.
 
-However, Despite your best efforts, the final blow is struck. 
+Despite this, you appear to be losing. Badly. 
+
+The stakes of the game keep you from giving up however, knowing that a fate worse than death awaits should you lose.
+
+[[Fight on!-&gt;Brother Reveal]]</tw-passagedata><tw-passagedata pid="15" name="Brother Reveal" tags="" position="124,68">In the face of the skill your opponent displays you continue the fight. You throw your all into it, only primal instinct driving you.
+
+However, Even with your best efforts, the final blow is struck. 
 
 You feel pent up frustration at your loss boil up.
 
-You look to your left to see your brother grinning ear to ear, obviously preparing himself to rub his victory in your unwilling face.
+Looking to your left you see your brother grinning ear to ear, obviously preparing himself to rub his victory in your unwilling face.
 
 [[Throw Your Controller on the Ground-&gt;Rage Choice]]
-[[Accuse Him of Cheating-&gt;Defensive Choice]]</tw-passagedata><tw-passagedata pid="16" name="Rage Choice" tags="" position="76,1208">Your Controller hits the ground with a satisfying Thunk, mixed with the shaking of it&#x27;s plastic innards. Any satisfaction drawn from this impulsive action was short lived as it started the Brother in a fit of laughter.
+[[Accuse Him of Cheating-&gt;Defensive Choice]]</tw-passagedata><tw-passagedata pid="16" name="Rage Choice" tags="" position="237,2">Your Controller hits the ground with a satisfying Thunk, mixed with the shaking of it&#x27;s plastic innards. Any satisfaction drawn from this impulsive action was short lived as it started the Brother in a fit of laughter.
 
-&quot;You&#x27;re a pretty sore loser bro.&quot; He taunted, shortly after recovering from his giggling episode. &quot;You know what happens next. Tell me.&quot; He looked at me excpectantly.
+&quot;You&#x27;re a pretty sore loser bro.&quot; He taunted, shortly after recovering from his giggling episode. &quot;You know what happens next. Tell me.&quot; He looks at you expectantly.
 
-[[Admit your defeat-&gt;Brother Showdown Consequences]]</tw-passagedata><tw-passagedata pid="17" name="Defensive Choice" tags="" position="226,1208">The words &quot;You Cheated!&quot; escape from your mouth, almost possessed by the anger and injustice you feel at the turn of events. This, however, was a flimsy argument at best.
+[[Admit your defeat-&gt;Brother Showdown Consequences]]</tw-passagedata><tw-passagedata pid="17" name="Defensive Choice" tags="" position="240,132">The words &quot;You Cheated!&quot; escape from your mouth, almost possessed by the anger and injustice you feel at the turn of events. It turns out that this was a flimsy argument at best.
 
-Your Brother&#x27;s smirk just seems even more annoying at this point. &quot;Nope. You just need to practise for at least a thousand more years.&quot;
+Your Brother&#x27;s smirk just seems even more annoying at this point. &quot;Nope. You&#x27;ll need to practise for at least a thousand more years.&quot;
 
 Before you have a chance to process the smugness of the this taunt, your Brother gives you a knowing look. &quot;We had a wager, but I think I need reminding of what we bet on. What was it again? You know how forgetful I am.&quot;
 
-[[Admit Defeat-&gt;Brother Showdown Consequences]]</tw-passagedata><tw-passagedata pid="18" name="Brother Showdown Consequences" tags="" position="156,1346">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+[[Admit Defeat-&gt;Brother Showdown Consequences]]</tw-passagedata><tw-passagedata pid="18" name="Brother Showdown Consequences" tags="" position="361,69">After your brother&#x27;s obvious lack of good sportsmanship, any possibility of dealing with this situation calmly goes out the window.
+
+&quot;I refuse to do any of your chores!&quot; you exclaim defensively.
+
+&quot;For two whole months, remember.&quot; replies your Brother, completely ignoring you. &quot;Aww, leaving already? We could play again, double or quits.&quot;
+
+[[Storm out-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="19" name="Get Dad&#x27;s attention 1" tags="" position="476,69">&quot;Hey Dad, My brother&#x27;s being mean to me again!&quot;
+
+As loud and confident as you felt you had been, it clearly wasn&#x27;t enough. Your Dad silently remains at the window, quietly muttering to himself.
+
+&quot;Dad! Listen to me!&quot;
+
+Nothing. You have no idea what he&#x27;s doing, but a chore filled future awaits and you can&#x27;t let that stand.
+
+You approach him.
+
+[[Get his attention-&gt;Get Dad&#x27;s attention 2]]</tw-passagedata><tw-passagedata pid="20" name="Get Dad&#x27;s attention 2" tags="" position="592,0">You get close enough that you&#x27;re by his side now. He still doesn&#x27;t notice you. His eyes are darting back and forth, as if looking out for something.
+
+For some reason you feel uneasy.
+
+You quickly shake this off and get back to your mission.
+
+[[Tug his sleeve-&gt;Get Dad&#x27;s attention 3]]</tw-passagedata><tw-passagedata pid="21" name="Get Dad&#x27;s attention 3" tags="" position="590,118">You gently tug the sleeve of your Dad&#x27;s jumper to get his attention, which you get sooner than expected.
+
+&quot;YOU&#x27;LL NEVER TAKE IT FROM ME!&quot;
+
+The exclamation, screamed at you in a tone of voice you&#x27;ve never heard from your Dad before, leaped from him almost as violently as he snaps around and grabs you by the shoulder. You feel his hands dig in fiercely as the pain travels through your arm.
+
+The shock of this knee jerk reaction freezes you into place. Your Dad stares at you for what feels like an eternity. His eyes look strange to you, in a way that you can&#x27;t understand. 
+
+&quot;Oh. Hey Son. Sorry about that! Daddy&#x27;s had a bad day at work.&quot; This sudden change in tone does nothing to get you or your brain moving. 
+
+Without another word your Dad gets back looking out the window. Shocked and confused about your Dad&#x27;s sudden change in parenting style, you leave the room with haste.
+
+[[Leave-&gt;Downstairs Hallway]]</tw-passagedata></tw-storydata>
