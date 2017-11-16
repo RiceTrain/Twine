@@ -1,6 +1,8 @@
 <tw-storydata name="Fog" startnode="14" creator="Twine" creator-version="2.1.3" ifid="B4D3AF8F-677E-4C24-B52A-2D821574AE76" format="Harlowe" format-version="2.0.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 </script><tw-passagedata pid="1" name="Your Bedroom" tags="" position="84,985">This sure is a bedroom!
 
@@ -24,12 +26,30 @@ You are upstairs! Where do you want to go?
 [[Downstairs-&gt;Downstairs Hallway]]
 ]</tw-passagedata><tw-passagedata pid="3" name="Downstairs Hallway" tags="" position="411,637">(if: $StartGameSequenceComplete is false)
 [
+  (if: $TalkedToDadStartSequence is false and 
+  $TalkedToMamStartSequence is false)
+  [
 Upon arriving at the bottom of the stairs, you can hear the sound of the TV coming from the Living Room. You can also hear an occasional hissing sound coming from the Dining Room.
 
-Both are likely to be coming from your Parents.
-
-[[Living Room]]
-[[Dining Room]]
+	Both are likely to be coming from your Parents.
+  ]
+  (elseif: $TalkedToDadStartSequence is true)
+  [
+  	You emerge from the encounter bewildered at your Dad&#x27;s reaction to you. Was it something you did? Are you in trouble? Is he just having a bad day?
+	
+	&quot;I&#x27;m sure he&#x27;s just having a bad day.&quot; You conclude to yourself shakily. You decide you&#x27;ve got more important things to worry about right now.
+	
+	In preparation for bargaining with your Mum, you take a minute to calm yourself down. You feel a dull, throbbing pain emit from your shoulder as the shock wears off.
+  ]
+  
+  (if: $TalkedToDadStartSequence is false)
+  [
+  [[Living Room]]
+  ]
+  (if: $TalkedToDadStartSequence is false)
+  [
+  [[Dining Room]]
+  ]
 ]
 (else:)
 [
@@ -50,13 +70,14 @@ There are a few options here.
 [[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="8" name="Front Door" tags="" position="187,478">It&#x27;s unlocked.
 
 [[Head Outside-&gt;Front of House]]
-[[Go To Hallway-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="9" name="Living Room" tags="" position="408,473">(if: $StartGameSequenceComplete is false)
+[[Go To Hallway-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="9" name="Living Room" tags="" position="407,473">(if: $StartGameSequenceComplete is false)
 [
 You arrive an a cosy Living Room. The TV is on, but doesn&#x27;t currently have an audience.
 
 You find your Dad alone, standing by the front window. He appears to be absorbed by whatever he&#x27;s doing, unaware of your furious presence.
 
 [[Announce your presence-&gt;Get Dad&#x27;s attention 1]]
+(set: $TalkedToDadStartSequence to true)
 ]
 (else:)
 [
@@ -74,6 +95,8 @@ Double-click this passage to edit it.
 [[Go To Dining Room-&gt;Dining Room]]</tw-passagedata><tw-passagedata pid="13" name="Garden" tags="" position="747,322">Double-click this passage to edit it.
 
 [[Go back Inside-&gt;Kitchen]]</tw-passagedata><tw-passagedata pid="14" name="Game Start Conversation" tags="" position="5,68">(set: $StartGameSequenceComplete to false)
+(set: $TalkedToDadStartSequence to false)
+(set: $TalkedToMamStartSequence to false)
 
 You find yourself in your room locked in battle with your Older Brother. You&#x27;ve been practising at this game every day after school, knowing that this day was coming.
 
@@ -124,14 +147,12 @@ You quickly shake this off and get back to your mission.
 
 [[Tug his sleeve-&gt;Get Dad&#x27;s attention 3]]</tw-passagedata><tw-passagedata pid="21" name="Get Dad&#x27;s attention 3" tags="" position="590,118">You gently tug the sleeve of your Dad&#x27;s jumper to get his attention, which you get sooner than expected.
 
-&quot;YOU&#x27;LL NEVER TAKE IT FROM ME!&quot;
+he snaps around violently and grabs you by the shoulder. You feel his hands dig in fiercely as the pain travels through your arm.
 
-The exclamation, screamed at you in a tone of voice you&#x27;ve never heard from your Dad before, leaped from him almost as violently as he snaps around and grabs you by the shoulder. You feel his hands dig in fiercely as the pain travels through your arm.
+&quot;DON&#x27;T TOUCH ME!&quot;
 
-The shock of this knee jerk reaction freezes you into place. Your Dad stares at you for what feels like an eternity. His eyes look strange to you, in a way that you can&#x27;t understand. 
+The shock of this knee jerk reaction freezes you into place. Your Dad stares at you for a moment that feels like an eternity. His paranoid glare meets your terrified look. There&#x27;s something about his eyes that make you feel like a stranger is staring back. 
 
-&quot;Oh. Hey Son. Sorry about that! Daddy&#x27;s had a bad day at work.&quot; This sudden change in tone does nothing to get you or your brain moving. 
-
-Without another word your Dad gets back looking out the window. Shocked and confused about your Dad&#x27;s sudden change in parenting style, you leave the room with haste.
+Without another word your Dad promptly gets back looking out the window. Shocked and confused about your Dad&#x27;s sudden change in parenting style, you leave the room a nervous wreck.
 
 [[Leave-&gt;Downstairs Hallway]]</tw-passagedata></tw-storydata>
