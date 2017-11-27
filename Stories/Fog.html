@@ -5,13 +5,15 @@
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
 
 
 
 
 
-</script><tw-passagedata pid="1" name="Your Bedroom" tags="AdvanceTurnsOnVisit" position="154.33333333333334,541">Your room is a complete mess, as usual. Finding anything here will be a challenge.
+
+</script><tw-passagedata pid="1" name="Your Bedroom" tags="AdvanceTurnsOnVisit" position="154,541">Your room is a complete mess, as usual. Finding anything here will be a challenge.
 
 Posters adorn the walls. Your TV is on in the corner of the room. You also see your Bed and Wardrobe.
 {
@@ -27,25 +29,41 @@ Posters adorn the walls. Your TV is on in the corner of the room. You also see y
 (click:&quot;Wardrobe&quot;)
 [(display:&quot;Your Wardrobe desc&quot;)]
 }
-[[Go to Hallway-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="2" name="Upstairs Hallway" tags="AdvanceTurnsOnVisit" position="16,792">You are upstairs! Where do you want to go?
+[[Go to Hallway-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="2" name="Upstairs Hallway" tags="AdvanceTurnsOnVisit" position="16,792">You&#x27;re in the upstairs hallway. From here you can go into Your Bedroom, your Parent&#x27;s Bedroom, your Brother&#x27;s Bedroom, the Attic, the Bathroom or Downstairs.
 
+Best get busy exploring.
+{
+(if: $DadLocation == (passage:)&#x27;s name)
+[(print: (passage: &quot;Dad goes past&quot;))]
+}
 [[Your Bedroom]]
-[[Parent&#x27;s Bedroom]]
+{
+(if: $DadLocation == &quot;Parent&#x27;s Bedroom&quot;)
+[[[Parent&#x27;s Bedroom-&gt;Parent&#x27;s bedroom door]]]
+(else:)
+[[[Parent&#x27;s Bedroom-&gt;Parent&#x27;s Bedroom]]]
+}
 [[Brother&#x27;s Bedroom]]
 [[Attic]]
 [[Bathroom]]
-[[Downstairs-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="3" name="Downstairs Hallway" tags="AdvanceTurnsOnVisit" position="19,1359">There are a few options here.
-
+[[Downstairs-&gt;Downstairs Hallway]]</tw-passagedata><tw-passagedata pid="3" name="Downstairs Hallway" tags="AdvanceTurnsOnVisit" position="19,1359">You arrive at the bottom of the stairs. The hallway connects to a few places.
+{
+(if: $DadLocation == (passage:)&#x27;s name)
+[(print: (passage: &quot;Dad goes past&quot;))]
+}
 [[Front Door]]
 [[Living Room]]
 [[Dining Room]]
-[[Upstairs-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="4" name="Parent&#x27;s Bedroom" tags="AdvanceTurnsOnVisit" position="154,1011">Double-click this passage to edit it.
+[[Upstairs-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="4" name="Parent&#x27;s Bedroom" tags="AdvanceTurnsOnVisit" position="262,1115">(if: $DadLocation != (passage:)&#x27;s name)
+[[[Leave-&gt;Upstairs Hallway]]]
+(else:)
+[
+You&#x27;re dead!
+]</tw-passagedata><tw-passagedata pid="5" name="Brother&#x27;s Bedroom" tags="AdvanceTurnsOnVisit" position="250,885">Double-click this passage to edit it.
 
-[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="5" name="Brother&#x27;s Bedroom" tags="AdvanceTurnsOnVisit" position="162,901">Double-click this passage to edit it.
+[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="6" name="Attic" tags="AdvanceTurnsOnVisit" position="255,770">Double-click this passage to edit it.
 
-[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="6" name="Attic" tags="AdvanceTurnsOnVisit" position="162,791">Double-click this passage to edit it.
-
-[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="7" name="Bathroom" tags="AdvanceTurnsOnVisit" position="161,672">Double-click this passage to edit it.
+[[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="7" name="Bathroom" tags="AdvanceTurnsOnVisit" position="186,653">Double-click this passage to edit it.
 
 [[Leave-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="8" name="Front Door" tags="AdvanceTurnsOnVisit" position="158,1501">It&#x27;s unlocked.
 
@@ -329,7 +347,7 @@ Just as you&#x27;ve assured yourself however, you catch a glimpse of yourself on
 
 &lt;!--Story variables coming soon--&gt;
 (set: $BrotherLocation to &quot;Brother&#x27;s Bedroom&quot;)
-(set: $DadLocation to &quot;Living Room&quot;)
+(set: $DadLocation to &quot;Upstairs Hallway&quot;)
 
 &lt;!--Item names. Use variables in place of strings.--&gt;
 (set: $CabinetKeyName to &quot;Cabinet Key&quot;)
@@ -356,6 +374,18 @@ e.g. turn 5 will display &quot;you feel a slight chill etc&quot;
 5, &quot;You feel a slight chill in the air, An unpleasant reminder of what awaits you.&quot;,
 $MovesUntilBedtime, (passage:&quot;Bedtime Shout&quot;)&#x27;s source
 ))
+
+&lt;!--Dad timeline. Number is current turn, text is location on that turn.&quot;
+--&gt;
+(set: $DadLocationTimeline to (dm:
+0, &quot;Upstairs Hallway&quot;, 1, &quot;Upstairs Hallway&quot;, 2, &quot;Parent&#x27;s Bedroom&quot;,
+6, &quot;Upstairs Hallway&quot;,7, &quot;Downstairs Hallway&quot;, 8, &quot;Living Room&quot;,
+12, &quot;Downstairs Hallway&quot;, 13, &quot;Upstairs Hallway&quot;, 14, &quot;Parent&#x27;s Bedroom&quot;,
+18, &quot;Upstairs Hallway&quot;, 19, &quot;Downstairs Hallway&quot;, 20, &quot;Living Room&quot;,
+24, &quot;Downstairs Hallway&quot;, 25, &quot;Upstairs Hallway&quot;, 26, &quot;Parent&#x27;s Bedroom&quot;,
+30, &quot;Upstairs Hallway&quot;, 31, &quot;Downstairs Hallway&quot;, 32, &quot;Living Room&quot;,
+42, &quot;Downstairs Hallway&quot;, 43, &quot;Upstairs Hallway&quot;, 44, &quot;Parent&#x27;s Bedroom&quot;
+))
 }</tw-passagedata><tw-passagedata pid="43" name="Inventory" tags="" position="22,1835">(if: $inventory&#x27;s length &gt; 0)
 [Here&#x27;s what you&#x27;ve got: (print: $inventory.join(&quot;\n&quot;)).]
 (else:)[You got nothing.]
@@ -363,7 +393,7 @@ $MovesUntilBedtime, (passage:&quot;Bedtime Shout&quot;)&#x27;s source
 (link-goto: &quot;Return&quot;, (history:)&#x27;s last)
 &lt;!--Always use display here, otherwise return won&#x27;t work!--&gt;
 (click: $CabinetKeyName)[(display: &quot;Cabinet Key Desc&quot;)]
-(click: $WinterClothesName)[(display: &quot;Winter Clothes Desc&quot;)]</tw-passagedata><tw-passagedata pid="44" name="Footer" tags="footer" position="18,1720.6666666666665">
+(click: $WinterClothesName)[(display: &quot;Winter Clothes Desc&quot;)]</tw-passagedata><tw-passagedata pid="44" name="Footer" tags="footer" position="18,1720">
 
 {
 (if: (passage:)&#x27;s name is &quot;Inventory&quot;)[]
@@ -385,12 +415,14 @@ $MovesUntilBedtime, (passage:&quot;Bedtime Shout&quot;)&#x27;s source
 [{(print:$CurrentMovesMade of $FogTimeline)}]
 ]
 }
-
-</tw-passagedata><tw-passagedata pid="47" name="Bedtime Shout" tags="" position="158,1850">You hear a shout from your Mum somewhere in the house.
+{
+(if: $DadLocationTimeline contains $CurrentMovesMade)
+[(set: $DadLocation to $CurrentMovesMade of $DadLocationTimeline)]
+}</tw-passagedata><tw-passagedata pid="47" name="Bedtime Shout" tags="" position="158,1850">You hear a shout from your Mum somewhere in the house.
 
 &quot;Kids! It&#x27;s Bedtime!&quot;
 
-The cold in the air is unmistakeable. You know they&#x27;ll be here soon.</tw-passagedata><tw-passagedata pid="48" name="Fog Confrontation beginning" tags="" position="1301.3333333333333,702.3333333333334">You fog wraps itself around you. It&#x27;s happening again. The almost unbearable sting of the cold, the heavy condensation, the wet footsteps.
+The cold in the air is unmistakeable. You know they&#x27;ll be here soon.</tw-passagedata><tw-passagedata pid="48" name="Fog Confrontation beginning" tags="" position="1301,702">You fog wraps itself around you. It&#x27;s happening again. The almost unbearable sting of the cold, the heavy condensation, the wet footsteps.
 
 Hope you have a plan.</tw-passagedata><tw-passagedata pid="49" name="Check Mirror" tags="" position="4,302">Realising that something doesn&#x27;t look right, you rush over to it. A quick glance at your neck reveals something that fills you with dread.
 
@@ -420,10 +452,43 @@ You wish you could just go to bed, ignore what&#x27;s happening and wake up with
 You open up your wardrobe to see if there&#x27;s anything useful. With it being summer, there are mostly clothes meant for the warmer temperatures.
 
 (print:(passage:&quot;Found Winter Clothes&quot;)&#x27;s source)
-</tw-passagedata><tw-passagedata pid="56" name="Welcome!" tags="startup" position="203.33333333333331,1614.1666666666667">
+</tw-passagedata><tw-passagedata pid="56" name="Welcome!" tags="startup" position="203,1614">
 -------------------------------------------------------------------------
 Welcome to &#x27;&#x27;The Drowning Fog&#x27;&#x27;! A Twine story by Rhys Thomas that will make you worry about the Author&#x27;s mental state.
 
 I hope enjoy solving the mysteries that await. Can you survive the horror that lurks within &#x27;&#x27;The Drowning Fog&#x27;&#x27;?
 -------------------------------------------------------------------------
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="57" name="Dad goes past" tags="" position="17,1141">
+Your Dad barges past you as if you weren&#x27;t there. The mad look on his face stops you from protesting.
+
+{
+(if:(passage:)&#x27;s name is &quot;Upstairs Hallway&quot;)
+[
+(if: ($CurrentMovesMade + 1) of $DadLocationTimeline == &quot;Parent&#x27;s Bedroom&quot;)
+[He seems to be heading to his bedroom.]
+(else-if: ($CurrentMovesMade + 1) of $DadLocationTimeline == &quot;Downstairs Hallway&quot;)
+[He seems to be heading downstairs.]
+]
+(else-if:(passage:)&#x27;s name is &quot;Downstairs Hallway&quot;)
+[
+(if: ($CurrentMovesMade + 1) of $DadLocationTimeline == &quot;Living Room&quot;)
+[He seems to be heading to the Living Room.]
+(else-if: ($CurrentMovesMade + 1) of $DadLocationTimeline == &quot;Upstairs Hallway&quot;)
+[He seems to be heading upstairs.]
+]
+}
+</tw-passagedata><tw-passagedata pid="58" name="Parent&#x27;s bedroom door" tags="NoInventory" position="175,990">You hear your Dad inside. He seems to be muttering something to himself.
+
+You&#x27;re not sure if you should go in right now.
+
+[[Go in-&gt;Parent&#x27;s Bedroom]]
+[[Peek inside-&gt;Spy On Dad]]
+[[Leave him be-&gt;Upstairs Hallway]]</tw-passagedata><tw-passagedata pid="59" name="Spy On Dad" tags="" position="128,1113">You peek inside, your curiosity overcoming you. After some searching you hone in on your Dad.
+
+He&#x27;s sat down cross legged by a cabinet that&#x27;s wide open, talking to himself. His murmurs are nonstop, punctuated only by an occasional giggle. He appears to be holding something and staring at it. At no point does his gaze wander.
+
+You wonder if his strange behaviour is connected to what&#x27;s happening. Your curiousity, merely piqued before, now burns brightly. You have to know what&#x27;s in that cabinet.
+
+As the frustration of your limited view kick in, you decide to leave him to it. You don&#x27;t want to be found snooping.
+
+[[Stop peeking-&gt;Upstairs Hallway]]</tw-passagedata></tw-storydata>
